@@ -1,0 +1,8 @@
+[webserver]
+10.10.0.1
+10.10.0.2
+[dnsserver]
+10.10.1.1 ansible_user=hungtn29 ansible_password=Fis@123
+[backend-server:children]
+webserver
+dnsserver

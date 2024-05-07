@@ -1,0 +1,93 @@
+Ansible
+
+- Là một hệ thống IT Automation
+- Sử dụng:
+	+ Configuration Management (Infrastructure: server, network, ...)
+	+ Application Deploymnet
+	+ Cloud Provisioning
+	+ Ad-hoc task execution
+	+ Multi-node orchestration
+	+ Security & Compliance
+	+ Ngoài Ansible còn có nhiều công cụ khác như saltstack, puppet,...
+- Ưu điểm: 
+	+ Quản lý tập trung
+	+ Tránh việc conflic các cấu hình với nhau
+	
+- Ansible chia ra:
+	+ Automation engine (Phần core): Opensource
+	+ Ansible Tower: Enterprise Framework có thêm phần UI và Restful API
+	
+- Các cách cấu hình cài đặt
+
+- SSH vào server linux
+	+ SSH có passphrase (ssh-copy-id -i id_rsa.pub root@destination_server_ip) = Sinh ra 1 folder tại ~/.ssh (700) và file authorized_keys (600)
+	+ SSH không có passphrase
+	+ Cách sử dụng nhập passphrase 1 lần với ssh-agent
+		ssh-agent bash
+		ssh-add ~/.ssh/id_rsa
+		ssh-add -l
+		ssh-add -L
+
+- Key Copcept
+	+ Ansible Host
+		Danh sách các host được quản lý bởi Ansible
+	+ Inventory
+		* Là một file lưu danh sách các host được quản lý bởi Ansible
+		* File này gồm danh sách các hosts quản lý bởi Ansible
+		* Các host có thể được viết tắt ở dạng dùng partern
+		* Các host có thể được gom nhóm lại với nhau thành một group
+		* Ngoài việc lưu các host file còn lưu một loạt các biến cấu hình cho việc hoạt động của Ansible
+		* Định dạng ini hoặc YAML
+		
+	+ Playbooks-Play
+		* Là một file khai báo kịch bản thực hiện tuần tự cho Ansible
+		* Playbook gồm một hay  nhiều Plays - Là một nhóm các task / role áp dụng lên một nhóm host cố định bằng key host trong file playbook
+		* Trong mỗi Play, host có thể được apply nhiều steps được gọi là Task. Các task này được thực hiện theo thứ tự từ trên xuống
+		* Tập hợp các task gọi là task list
+		* Một task sẽ thực hiện một Module với đối số truyền vào tương ứng với nó
+
+	+ Tasks
+		Một task được gọi là một plays
+	+ Modules
+		Mỗi task con bên trong task được gọi là một module
+	+ Roles
+		Là một cấu trúc thư mục tuân theo chuẩn của Ansible
+		roles/
+		common/               # this hierarchy represents a "role"
+			tasks/            #
+				main.yml      #  <-- tasks file can include smaller files if warranted
+			handlers/         #
+				main.yml      #  <-- handlers file
+			templates/        #  <-- files for use with the template resource
+				ntp.conf.j2   #  <------- templates end in .j2
+			files/            #
+				bar.txt       #  <-- files for use with the copy resource
+				foo.sh        #  <-- script files for use with the script resource
+			vars/             #
+				main.yml      #  <-- variables associated with this role
+			defaults/         #
+				main.yml      #  <-- default lower priority variables for this role
+			meta/             #
+				main.yml      #  <-- role dependencies
+			library/          # roles can also include custom modules
+			module_utils/     # roles can also include custom module_utils
+			lookup_plugins/   # or other types of plugins, like lookup in this case
+
+		webtier/              # same kind of structure as "common" was above, done for the webtier role
+		monitoring/           # ""
+		fooapp/               # ""
+	+ Variables: Có 2 loại 
+		* Build-in: Biến có sẵn của Ansible (https://docs.ansible.com/ansible/latest/reference_appendices/special_variables.html)
+		* Custom: Biến do người dùng định nghĩa
+		* Quy ước đặt tên biến không trùng với các từ khóa keyword của Python và Ansible
+		* Biến có thể được định nghĩa tại nhiều vị trí khác nhau: Trong Task nằm trong Playbook, trong Inventory, trong File riêng
+		* Kiểu dữ liệu: String, Array, Dictionary
+		* Truy cập biến sử dụng cú pháp: {{ variable_name }}
+		* Register một biến từ output một task trong Ansible
+	+ Templates
+	+ Handlers
+	+ Facts
+	+ Condititonals and loops
+	+ Ansible vault
+	
+ansible galaxy

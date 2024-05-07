@@ -1,0 +1,16 @@
+- hosts: webserver
+  tasks:
+    - name: Get IP Address
+      ping:
+- hosts: databases
+  tasks:
+    - name: ping
+      ping:
+    - name: Get IP Address
+      command:
+        cmd: ip a
+# Run with command
+# ansible-playbook -i hosts_file ansible-playbook.yaml
+# Mỗi task được coi là một Module 
+# Tham khảo tại link sau
+# https://docs.ansible.com/ansible/2.9/modules/list_of_all_modules.html

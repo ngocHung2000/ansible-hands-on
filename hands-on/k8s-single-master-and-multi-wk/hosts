@@ -1,0 +1,11 @@
+[master]
+master ansible_host=10.2.0.4
+
+[workers]
+worker1 ansible_host=10.2.0.5
+
+[all:vars]
+ansible_python_interpreter=/usr/bin/python3
+ansible_ssh_extra_args='-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
+ansible_ssh_private_key_file=/root/.ssh/id_rsa
+ansible_user=root
