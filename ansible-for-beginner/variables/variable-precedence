@@ -1,0 +1,20 @@
+web_01 ansible_host=10.0.0.1
+web_02 ansible_host=10.0.0.2
+
+[web_server]
+web_01
+web_02
+
+[web_server:vars]
+dns_server=10.0.0.5
+
+#   Variable Precedence
+# 1. Role Defaults
+# 2. Group Vars
+# 3. Host Vars
+# 4. Host Facts
+# 5. Play Vars
+# 6. Role Vars
+# 7. Include Vars
+# 8. Set Facts
+# 9. Extra Vars

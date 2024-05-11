@@ -1,0 +1,38 @@
+- name: Create user
+  hosts: localhost
+  tasks:
+  - user: name='{{ item }}' state=present
+    with_items:
+      - joe
+      - hungtn
+      - danny
+
+- name: View Config file
+  hosts: localhost
+  tasks:
+    - debug: var=item
+      with_file:
+      - "/etc/hosts"
+      - "/etc/resolve.conf"
+      - "/etc/ntp.conf"
+
+- name: Get from multiple URLs
+  hosts: localhost
+  tasks:
+    - debug: var=item
+      with_url:
+      - "https://site1.com/get_stated"
+      - "https://site3.com/get_stated"
+      - "https://site2.com/get_stated"
+
+- name: Check multiple mongodbs
+  hosts: localhost
+  tasks:
+  - debug: msg="DB={{ item.database }} PID={{ item.pid }}"
+    with_mongodb:
+    - database: dev
+      connection_strings: "mongo://dev.mongo"
+    - database: prod
+      connection_strings: "mongo://prod.mongo"
+
+# https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_loops.html#comparing-loop-and-with

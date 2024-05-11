@@ -1,0 +1,78 @@
+System:
+    + User
+    + Group
+    + Hostname
+    + Iptables
+    + Lvg
+    + Lvol
+    + Make
+    + Mount
+    + Ping
+    + Timezone
+    + Systemd
+    + Service
+
+Command:
+    + Command
+    + Expect
+    + Raw
+    + Script
+    + Shell
+
+Files:
+    + Acl
+    + Archive
+    + Copy
+    + File
+    + Find
+    + Lineinfile
+    + Replace
+    + Stat
+    + Template
+    + Unachive
+
+Database:
+    + MongoDB
+    + MSSQL
+    + MySQL
+    + PostgresQL
+    + ProxySQL
+    + Vertica
+
+Cloud:
+    + Amazon
+    + Atomic
+    + Azure
+    + Centrylink
+    + Cloudscale
+    + Cloudstack
+    + Digital Ocean
+    + Docker
+    + Google
+    + Linode
+    + Openstack
+    + Rackspace
+    + Smartos
+    + Softlayer
+    + VMWare
+
+Windows
+    + Win_copy
+    + Win_command
+    + Win_domain
+    + Win_file
+    + Win_iis_website
+    + Win_msg
+    + Win_msi
+    + Win_package
+    + Win_ping
+    + Win_path
+    + Win_robocopy
+    + Win_regedit
+    + Win_shell
+    + Win_service
+    + Win_user
+    ...
+
+More ...
+ 

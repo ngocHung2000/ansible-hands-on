@@ -1,0 +1,13 @@
+[lb_haproxy]
+10.0.0.1
+
+[worker_node]
+worker_01 ansible_host=10.0.0.2
+
+[master_node]
+master_01 ansible_host=10.0.0.3
+master_02 ansible_host=10.0.0.4
+
+[cluster:children]
+worker_node
+master_node

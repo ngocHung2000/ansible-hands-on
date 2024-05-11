@@ -1,0 +1,11 @@
+- name: Check status of a service and sent mail if its down
+  hosts: localhost
+  tasks:
+    - command: service httpd status
+      register: result
+    
+    - mail: 
+        to: admin@company.com
+        subject: Service Allert
+        body: Httpd Service is down
+        when: result.stdout.find('down') != -1

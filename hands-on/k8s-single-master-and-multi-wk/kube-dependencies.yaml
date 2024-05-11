@@ -9,8 +9,8 @@
       apt:
         update_cache: yes
 
-          #- name: reboot and wait for reboot to complete
-          #reboot:
+    # - name: reboot and wait for reboot to complete
+    #   reboot:
 
     - name: disable SWAP (Kubeadm requirement)
       shell: |
@@ -141,8 +141,8 @@
         name: net.ipv4.ip_forward
         value: 1
 
-          #- name: reboot and wait for reboot to complete
-          #reboot:
+    # - name: reboot and wait for reboot to complete
+    #   reboot: 
 
 - hosts: master
   become: yes

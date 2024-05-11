@@ -1,0 +1,17 @@
+Variable in Ansible
+- String:
+    + String variable in Ansible are sequences of characters
+    + They can be defined in a playbook, inventory, or passed and command line arguments
+- Number:
+    + Number varialbes in Ansible can hold integer or floating-point values
+    + They can used in mathematical operations
+- Boolean:
+    + Boolean variables in Ansible can hold either true or false
+    + They are often used in conditional statements
+- List:
+    + List variables in Ansible can hold an ordered collection of values
+    + They values can be of any type
+- Dictionary
+    + Dictionay variables in Ansible can hold a collection of key-value pairs
+    + The keys and values can be of any type
+- Register Variables and Variable Precedence

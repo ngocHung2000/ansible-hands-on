@@ -1,0 +1,21 @@
+Playbook is a single YAML file of activities (tasks) to be run on hosts
+    - Task - An action to be performed on the hosts
+        + Execute a command
+        + Run a script
+        + Install a package
+        + Shutdown/Restart
+
+Verify Playbook
+    + Check Mode
+        ansible-playbook -i hosts_ini 01-example.yaml --check
+
+    + Diff Mode
+        ansible-playbook -i hosts_ini 01-example.yaml --check --diff
+    
+    + Syntax check
+        ansible-playbook -i hosts_ini 01-example.yaml --syntax-check
+
+    + Ansible-lint
+        a, Ansible Lint is a command-line tool that performs linting on Ansible playbooks, roles and collections
+        b, It checks your code for potential errors, bugs, stylistic errors, and suspicious constructs
+        c, It is akin to having a seasoned Ansbile metor guiding you, providing valuable insights, and catching issues that might have slipped past your notice

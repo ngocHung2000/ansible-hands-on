@@ -1,0 +1,23 @@
+- name: Allows inbound
+  hosts: web
+  tasks:
+    - name: Allow HTTPS
+      firewalld: 
+        service: https
+        permanent: true
+        state: enabled
+    - name: Allow HTTP
+      firewalld: 
+        service: http
+        permanent: true
+        state: enabled
+    - name: Allow HTTP2
+      firewalld: 
+        port: '{{ http_port }}'/udp
+        permanent: true
+        state: enabled
+    - name: Allow HTTPS2
+      firewalld: 
+        port: '{{ https_port }}'/tcp
+        permanent: true
+        state: enabled

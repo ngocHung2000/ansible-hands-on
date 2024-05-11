@@ -1,0 +1,18 @@
+- name: Play 01
+  hosts: localhost
+  tasks:
+  - name: Execute command date
+    command: date
+  
+  - name: Exec script on server
+    script: path_to_script.sh
+
+  - name: Install httpd
+    yum:
+      name: httpd
+      state: present
+  
+  - name: Start web server
+    systemd_service:
+      name: httpd
+      state: started

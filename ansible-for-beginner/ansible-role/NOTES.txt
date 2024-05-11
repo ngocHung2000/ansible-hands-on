@@ -1,0 +1,16 @@
+Ansible Handlers
+    - Tasks trigged by events/notifications
+    - Defined in playbook, executed when notified by a task
+    - Manage actions based on system state/configuration changes
+
+Ansible Roles
+    ansible-galaxy init mysql
+    ansible-galaxy search mysql
+    ansible-galaxy install geerlingguy.mysql
+    ansible-galaxy list
+    ansible-config dump | grep ROLE
+
+Ansible Collections
+    - Package and distribute modules, role, plugin
+    - Self-contained
+    - Community and Vendor-created

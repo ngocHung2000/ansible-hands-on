@@ -1,0 +1,13 @@
+- name: Install required packages
+  apt: 
+    name: 
+      - package_01
+      - package_02
+      - package_03
+    state: present
+...
+- name: Start web application service
+  systemd_service:
+    name: myapp
+    state: started
+  when: environment == 'production'

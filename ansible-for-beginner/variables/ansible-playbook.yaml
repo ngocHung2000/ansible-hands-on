@@ -1,0 +1,9 @@
+- name: Add DNS to resolve.conf
+  hosts: localhost
+  vars:
+    dns_server: 10.10.0.10
+  tasks:
+    - name: Add
+      lineinfile:
+        path: /etc/resolve.conf
+        line: 'nameserverr {{ dns_server }}'

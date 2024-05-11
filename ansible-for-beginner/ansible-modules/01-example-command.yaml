@@ -1,0 +1,13 @@
+- name: Play 1
+  hosts: localhost
+  tasks:
+    - name: Exec command
+      command: date
+    
+    - name: DIsplay resolve.conf contents
+      command: cat /etc/resolve.conf
+
+    - name: DIsplay resolve.conf contents
+      command: cat resolve.conf chdir=/etc
+    
+    
