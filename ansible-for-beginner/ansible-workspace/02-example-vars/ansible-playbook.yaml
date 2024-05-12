@@ -1,11 +1,6 @@
 - name: Deploy Application
   hosts: webapp
   become: yes
-  vars:
-    database:
-      name: app
-      user: hungtn29
-      passwd: 12345
   tasks:
     - name: Install Require
       apt: name={{ item }} state=present

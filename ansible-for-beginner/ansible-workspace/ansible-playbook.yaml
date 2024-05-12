@@ -1,0 +1,25 @@
+- hosts: local_vm
+  tasks:
+    - name: Set host name
+      hostname:
+        name: haproxy
+        use: systemd
+
+    # - name: Disable SELinux
+    #   selinux:
+    #     state: disabled
+    #   msg: "Config SELinux state changed to disabled"
+    
+    - name: Install haproxy
+      apt: name=haproxy state=present
+      tags: haproxy
+
+    - name: Configure HAProxy
+      copy:
+        src: ./config/haproxy.cfg
+        dest: /etc/haproxy/haproxy.cfg
+
+    - name: Restart HAProxy
+      systemd_service:
+        state: restarted
+        name: haproxy.service

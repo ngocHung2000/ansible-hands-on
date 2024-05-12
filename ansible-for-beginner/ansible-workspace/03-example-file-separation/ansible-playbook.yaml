@@ -1,0 +1,18 @@
+- name: Deploy Application
+  hosts: webapp
+  become: yes
+  tasks:
+    - name: Install Require
+      apt: name={{ item }} state=present
+      with_items:
+      - python3
+      - python-setuptools
+      - python-dev-is-python3
+      - build-essential
+      - python3-pip
+
+    - name: Deploy Mysql
+      include_tasks: tasks/task-mysql.yml
+
+    - name: Deploy App
+      include_tasks: tasks/task-deploy.yml 

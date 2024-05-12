@@ -1,0 +1,18 @@
+- name: Install MySQL Database
+  apt: name={{ item }} state=latest
+  with_items:
+  - mysql-server
+  - mysql-client
+
+- name: Start MySQL
+  systemd_service:
+    name: mysql
+    state: started
+    enabled: yes
+
+- name: Create Database
+  command: "{{ item }}"
+  with_items:
+  - mysql -e "DROP DATABASE IF EXISTS {{ database.name }}; CREATE DATABASE {{ database.name }};"
+  - mysql -e "show databases;"
+

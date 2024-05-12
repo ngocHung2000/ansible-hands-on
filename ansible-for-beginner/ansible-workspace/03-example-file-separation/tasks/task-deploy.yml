@@ -1,0 +1,14 @@
+- name: Install Flask Dependencies
+  pip:
+    name: "{{ item }}"
+    state: present
+  with_items:
+  - flask
+  - flask-mysql
+
+- name: Copy Source Application
+  copy: src=./app.py dest=/opt/app.py
+
+- name: Start Application
+  shell: nohup python3 /opt/app.py &
+
